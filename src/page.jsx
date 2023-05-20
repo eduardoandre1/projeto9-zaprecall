@@ -3,11 +3,11 @@ import Contador from "./contador";
 import Questions from "./questions";
 import Title from "./title";
 import { useState } from "react";
-import  certo from'./src/assets/icone_certo.png'
-import errado from  './scr/assets/icone_erro.png'
-import quase from './src/assets/icone_quase.png'
-import abrir from './src/assets/seta_play.png'
-import fechar from './src/assets/seta_virar.png'
+import  certo from'./assets/icone_certo.png'
+import errado from  './assets/icone_erro.png'
+import quase from './assets/icone_quase.png'
+import abrir from './assets/seta_play.png'
+import fechar from './assets/seta_virar.png'
 
 export default function Page(props){
     const icones = {
