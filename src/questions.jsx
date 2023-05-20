@@ -2,6 +2,7 @@ import Quest from "./quest";
 export default function Questions(props){
     let perguntas = props.posição.map(
         function gerarpergunta(numero){
+            
             return <Quest 
                     //variaveis exclusivas na construção de cada pergunta
                     key={numero} 

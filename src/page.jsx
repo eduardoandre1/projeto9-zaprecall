@@ -3,13 +3,19 @@ import Contador from "./contador";
 import Questions from "./questions";
 import Title from "./title";
 import { useState } from "react";
+import  certo from'./src/assets/icone_certo.png'
+import errado from  './scr/assets/icone_erro.png'
+import quase from './src/assets/icone_quase.png'
+import abrir from './src/assets/seta_play.png'
+import fechar from './src/assets/seta_virar.png'
+
 export default function Page(props){
     const icones = {
-    certo:'./src/assets/icone_certo.png',
-    errado: './scr/assets/icone_erro.png',
-    quase: './src/assets/icone_quase.png',
-    abrir:'./src/assets/seta_play.png',
-    fechar:'./src/assets/seta_virar.png',
+    certo:certo,
+    errado: errado,
+    quase: quase,
+    abrir:abrir,
+    fechar:fechar,
     }
 
     const [escolha,Setescolha] = useState(props.cards.map((r)=>{return ""}))

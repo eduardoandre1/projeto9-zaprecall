@@ -29,7 +29,7 @@ export default function Title(){
     `
     return(
     <Titulo>
-        <img src="./assets/logo.png" alt="logo" />
+        <img src="./src/assets/logo.png" alt="logo" />
         <h1>ZapRecall</h1>
     </Titulo>)
 }
