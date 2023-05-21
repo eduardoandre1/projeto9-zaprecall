@@ -1,42 +1,63 @@
 import styled from "styled-components"
+import questbuttom from "./questbuttom";
 export default function Quest(props){
-    function expansão(array,posição,expandir){
-        let abertos = array;
-        abertos[posição-1] ++;
-        return abertos
+    function exp(){
+        let novo = props.expandir;
+        novo[props.posição-1] ++;
+        props.SetExpandir(novo)
+        props.Setlidos(props.lidos+1)
+    }
+    function enviar(escolhido){
+        let recomeço = props.expandir
+        recomeço[props.posição-1] = 0;
+        let escolha = props.escolha
+        escolha[props.posição-1] = escolhido
+        props.SetExpandir(recomeço)
+        props.Setlidos(props.lidos+1)
+        props.Setescolha(escolha)
+        alert(props.escolha)
+        alert(props.expandir)
+        props.SetRespondidos(props.respondidos+1);
+        
     }    
     // dados css
     const SCexpandido =styled.div`
-div{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-margin-bottom: 25px;
-width: 300px;
-height: 131px;
-background: #FFFFD5;
-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-border-radius: 5px;
-display: ${props.expandir[props.posição-1]==0?'none':'flex'};
-flex-direction: column;
-h1{
-    width: 247.83px;
-    height: 44px;
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    color: #333333;
-    text-align: center;
-}
-img{
-    margin-right: 15px;
-    width: 20px;
-    height: 23px;
-}
-`
+    div{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    position:relative;
+    margin-bottom: 25px;
+    width: 300px;
+    min-height: 131px;
+    height: 100%;
+    background: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display: ${props.expandir[props.posição-1]==0?'none':'flex'};
+    flex-direction: column;
+    justify-content: space-between;
+    h1{
+        font-family: 'Recursive';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color:#333333;
+        text-align: center;
+    }
+    img{
+        position:absolute;
+        right: 0px;
+        bottom: 0px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        width: 20px;
+        height: 23px;
+    }
+    `
     const SCcomprimido = styled.div`
     width: 300px;
     height: 65px;
@@ -56,7 +77,8 @@ img{
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        color: #333333;
+        color: ${props.escolha[props.posição-1]};
+        text-decoration-line: ${props.escolha[props.posição-1]==='black'?'':'line-through'}
     }
     img{
         margin-right: 15px;
@@ -64,54 +86,55 @@ img{
         height: 23px;
     }`
     
-    const questbuttom = styled.button`
-    width: 85.17px;
-    height: 37.17px;
-    border-radius: 5px;
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    `
-    const redbuton = styled(questbuttom)`background: #FF3030;`
-    const yellowbutton = styled(questbuttom)`background: #FF922E;`
-    const greenbutton = styled(questbuttom)`background:#2FBE34;`
+    const Redbuton = styled(questbuttom)`background: #FF3030;`;
+    const Yellowbutton = styled(questbuttom)`background: #FF922E;`;
+    const Greenbutton = styled(questbuttom)`background:#2FBE34;`;
     
     switch (props.expandir[props.posição-1]){
         case 1 :
             return(
                 <SCexpandido data-test="flashcard" id={props.lidos}>
                 <h1 data-test="flashcard-text">{props.pergunta}</h1>
-                <img data-test="play-btn" onClick={()=>{props.SetExpandir(expansão(props.expandir,props.posição));props.Setlidos(props.lidos+1)}} src={props.icones.abrir} alt="read the question" />
+                <img 
+                    data-test="play-btn" 
+                    onClick={()=>exp()}
+                    src={props.icones.fechar} 
+                    alt="read the resposta" />
                 </SCexpandido>
             )
-            break
         case 2:
             return(
                 <SCexpandido data-test="flashcard">
                 <h1 data-test="flashcard-text">{props.resposta}</h1>
                 <div>
-                    <redbuton>Não lembrei</redbuton>
-                    <yellowbutton>Quase não lembrei</yellowbutton>
-                    <greenbutton>Zap!</greenbutton>
+                    <Redbuton 
+                    onClick={()=>{enviar('#FF3030')}}
+                    >Não lembrei</Redbuton>
+                    <Yellowbutton
+                    onClick={()=>{enviar('#FF922E')}}
+                    >Quase não lembrei</Yellowbutton>
+                    <Greenbutton
+                    onClick={()=>{enviar('#2FBE34')}}
+                    >Zap!</Greenbutton>
                 </div>
                 </SCexpandido>
             )
-            break;
         default:
             return(
                 <>
                 <SCcomprimido data-test="flashcard" >
                     <h1 data-test="flashcard-text">pergunta {props.posição}</h1>
-                    <img data-test="play-btn" onClick={()=>{props.SetExpandir(expansão(props.expandir,props.posição));props.Setlidos(props.lidos+1)}} src={props.icones.abrir} alt="read the question" />
+                    <button
+                        disabled={props.escolha[props.posição-1]==='black'?false:true}
+                        onClick={()=>exp()} 
+                        data-test="play-btn" 
+                        ><img 
+                        src={props.icones.abrir}
+                        alt="read the question" 
+                        />
+                    </button>
                 </SCcomprimido>
                 </>
             )
-        
     }
 }

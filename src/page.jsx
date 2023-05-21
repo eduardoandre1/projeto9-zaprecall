@@ -18,7 +18,7 @@ export default function Page(props){
     fechar:fechar,
     }
 
-    const [escolha,Setescolha] = useState(props.cards.map((r)=>{return ""}))
+    const [escolha,Setescolha] = useState(props.cards.map((r)=>{return "black"}))
     const [expandir,SetExpandir] = useState(props.cards.map(()=>{return 0}))
     const [lidos,Setlidos] =useState(0)
     const posição=Array.from({length: props.cards.length}, (_, index) => index + 1)
@@ -41,6 +41,7 @@ export default function Page(props){
             posição={posição} 
             expandir={expandir} 
             SetExpandir={SetExpandir} 
+            respondidos={respondidos}
             SetRespondidos={SetRespondidos}
             escolha={escolha} 
             Setescolha={Setescolha} 
@@ -53,6 +54,7 @@ export default function Page(props){
             icones={icones} 
             expandir={expandir}
             lidos = {lidos}
+            escolha={escolha}
             />
         </SCPagesize>
     )

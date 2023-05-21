@@ -3,7 +3,7 @@ import styled from "styled-components"
 export default function Questions(props){
     const Lista = styled.div`
     margin-bottom:70px`
-    let perguntas = props.posição.map(
+    const perguntas = props.posição.map(
          (numero)=>{
             return <Quest 
                     //variaveis exclusivas na construção de cada pergunta
@@ -16,9 +16,12 @@ export default function Questions(props){
                     expandir ={props.expandir}
                     SetExpandir={props.SetExpandir}
                     SetRespondidos={props.SetRespondidos}
+                    respondidos ={props.respondidos}
                     Setatualizar={props.Setatualizar}
                     Setlidos={props.Setlidos}
                     lidos={props.lidos}
+                    escolha={props.escolha} 
+                    Setescolha={props.Setescolha} 
                     />
         }
     )
