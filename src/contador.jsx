@@ -27,6 +27,8 @@ export default function Contador(props){
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     align-items:center;
     justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
     h1{
         justify-content: center;
         font-family: 'Recursive';
@@ -42,6 +44,12 @@ export default function Contador(props){
         align-items: center;
         width: 20px;
         height: 23px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    div{
+        margin-left: auto;
+        margin-right: auto;
     };
     `
     const Atualizador = styled.div`
@@ -50,7 +58,7 @@ export default function Contador(props){
         <Contadorhtml data-test="footer">
             <Atualizador>{props.lidos}{props.respondidos}</Atualizador>
             <h1>{props.respondidos}/{props.expandir.length} CONCLUÍDOS</h1>
-            {result}
+            <div>{result}</div>
         </Contadorhtml>
     )
 }

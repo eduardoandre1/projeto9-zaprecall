@@ -15,8 +15,6 @@ export default function Quest(props){
         props.SetExpandir(recomeço)
         props.Setlidos(props.lidos+1)
         props.Setescolha(escolha)
-        alert(props.escolha)
-        alert(props.expandir)
         props.SetRespondidos(props.respondidos+1);
         
     }    
@@ -54,8 +52,8 @@ export default function Quest(props){
         bottom: 0px;
         margin-right: 15px;
         margin-bottom: 15px;
-        width: 20px;
-        height: 23px;
+        width: 25px;
+        height: 25px;
     }
     `
     const SCcomprimido = styled.div`
