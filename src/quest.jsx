@@ -1,12 +1,11 @@
 import styled from "styled-components"
 
 export default function Quest(props){
-    function expandir(array,posição){
+    function expansão(array,posição,expandir){
         let abertos = array;
         abertos[posição-1] = true;
         return abertos
     }    
-    console.log(props.expansão)
     // dados css
     const SCQuesthtmlmacro =styled.div`
     div{
@@ -20,7 +19,8 @@ export default function Quest(props){
     background: #FFFFD5;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    display: ${props.expansão[props.posição-1]==false?'none':'flex'};
+    display: ${props.expandir[props.posição-1]==false?'none':'flex'};
+    flex-direction: column;
     h1{
         width: 247.83px;
         height: 44px;
@@ -30,16 +30,16 @@ export default function Quest(props){
         font-size: 18px;
         line-height: 22px;
         color: #333333;
+        text-align: center;
     }
     `
-
     const SCQuesthtmlmicro = styled.div`
     width: 300px;
     height: 65px;
     background: #FFFFFF;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    display: ${props.expansão[props.posição-1]==false?'flex':'none'};
+    display: ${props.expandir[props.posição-1]==false?'flex':'none'};
     align-items: center;
     justify-content: space-between;
     margin-bottom: 25px;
@@ -54,7 +54,7 @@ export default function Quest(props){
         line-height: 19px;
         color: #333333;
     }
-    button{
+    img{
         margin-right: 15px;
         width: 20px;
         height: 23px;
@@ -77,21 +77,25 @@ export default function Quest(props){
     const redbuton = styled(questbuttom)`background: #FF3030;`
     const yellowbutton = styled(questbuttom)`background: #FF922E;`
     const greenbutton = styled(questbuttom)`background:#2FBE34;`
-    
-    return(
-    <>
-    <SCQuesthtmlmicro >
-        <h1>pergunta{props.posição}</h1>
-        <img onClick={()=>props.SetExpandir(expandir(props.expansão,props.posição))} src={props.icones.abrir} alt="read the question" />
-    </SCQuesthtmlmicro>
-    <SCQuesthtmlmacro >
+    if(props.expandir[props.posição-1]==true){
+        return(
+        <SCQuesthtmlmacro >
         <h1>{props.pergunta}</h1>
         <div>
             <redbuton>Não lembrei</redbuton>
             <yellowbutton>Quase não lembrei</yellowbutton>
             <greenbutton>Zap!</greenbutton>
         </div>
-    </SCQuesthtmlmacro>
+        </SCQuesthtmlmacro>
+        )
+    }else{
+    return(
+    <>
+    <SCQuesthtmlmicro >
+        <h1>pergunta {props.posição}</h1>
+        <img onClick={()=>{props.SetExpandir(expansão(props.expandir,props.posição));props.SetRespondidos(props.posição)}} src={props.icones.abrir} alt="read the question" />
+    </SCQuesthtmlmicro>
     </>
     )
+    }
 }

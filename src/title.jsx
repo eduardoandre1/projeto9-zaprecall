@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import './assets/logo.png'
+import logo from './assets/logo.png'
 export default function Title(){
     const Titulo = styled.div`
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -29,7 +29,7 @@ export default function Title(){
     `
     return(
     <Titulo>
-        <img src="./src/assets/logo.png" alt="logo" />
+        <img src={logo} alt="logo" />
         <h1>ZapRecall</h1>
     </Titulo>)
 }

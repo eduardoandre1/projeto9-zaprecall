@@ -22,7 +22,7 @@ export default function Contador(props){
     };
     `
     return(
-        <Contadorhtml>
+        <Contadorhtml >
             <h1>{props.respondidos}/{props.expandir.length} CONCLUÍDOS</h1>
         </Contadorhtml>
     )

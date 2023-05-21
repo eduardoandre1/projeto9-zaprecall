@@ -22,12 +22,10 @@ export default function Page(props){
     const [expandir,SetExpandir] = useState(props.cards.map(()=>{return false}))
     const [atualizar,Setatualizar] = useState(true)
     const posição=Array.from({length: props.cards.length}, (_, index) => index + 1)
-    console.log("pai")
-    console.log(posição)
     const [respondidos,SetRespondidos]= useState(0)
     const SCPagesize = styled.div`
         width: 100%;
-        height: 100vh;
+        height: 100%;
         background: #FB6B6B;
         border: 1px solid #DBDBDB;
         display:flex;
