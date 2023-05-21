@@ -19,7 +19,7 @@ export default function Page(props){
     }
 
     const [escolha,Setescolha] = useState(props.cards.map((r)=>{return ""}))
-    const [expandir,SetExpandir] = useState(props.cards.map(()=>{return false}))
+    const [expandir,SetExpandir] = useState(props.cards.map(()=>{return 0}))
     const [atualizar,Setatualizar] = useState(true)
     const posição=Array.from({length: props.cards.length}, (_, index) => index + 1)
     const [respondidos,SetRespondidos]= useState(0)

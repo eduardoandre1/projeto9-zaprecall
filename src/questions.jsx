@@ -9,6 +9,7 @@ export default function Questions(props){
                     //variaveis exclusivas na construção de cada pergunta
                     key={props.expandir[numero-1]} 
                     pergunta={props.cards[numero-1].question} 
+                    resposta={props.cards[numero-1].answer}
                     posição={numero}
                     icones={props.icones}
                     //variaveis dinamicas da pagina 
