@@ -17,11 +17,13 @@ export default function Questions(props){
                     SetExpandir={props.SetExpandir}
                     SetRespondidos={props.SetRespondidos}
                     Setatualizar={props.Setatualizar}
+                    Setlidos={props.Setlidos}
+                    lidos={props.lidos}
                     />
         }
     )
     return(
-        <Lista id={props.expandir}>
+        <Lista >
             {perguntas}
         </Lista>)
 }

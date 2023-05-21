@@ -20,7 +20,7 @@ export default function Page(props){
 
     const [escolha,Setescolha] = useState(props.cards.map((r)=>{return ""}))
     const [expandir,SetExpandir] = useState(props.cards.map(()=>{return 0}))
-    const [atualizar,Setatualizar] = useState(true)
+    const [lidos,Setlidos] =useState(0)
     const posição=Array.from({length: props.cards.length}, (_, index) => index + 1)
     const [respondidos,SetRespondidos]= useState(0)
     const SCPagesize = styled.div`
@@ -32,6 +32,7 @@ export default function Page(props){
         flex-direction: column ;
         align-items: center;
         `
+    
     return(
         <SCPagesize>
             <Title />
@@ -44,10 +45,15 @@ export default function Page(props){
             escolha={escolha} 
             Setescolha={Setescolha} 
             icones={icones}
-            atualizar={atualizar}
-            Setatualizar={Setatualizar}
+            Setlidos={Setlidos}
+            lidos ={lidos}
             />
-            <Contador respondidos={respondidos} icones={icones} expandir={expandir}/>
+            <Contador 
+            respondidos={respondidos} 
+            icones={icones} 
+            expandir={expandir}
+            lidos = {lidos}
+            />
         </SCPagesize>
     )
 }

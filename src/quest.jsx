@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 export default function Quest(props){
     function expansão(array,posição,expandir){
         let abertos = array;
@@ -8,36 +7,36 @@ export default function Quest(props){
     }    
     // dados css
     const SCexpandido =styled.div`
-    div{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    margin-bottom: 25px;
-    width: 300px;
-    height: 131px;
-    background: #FFFFD5;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    display: ${props.expandir[props.posição-1]==0?'none':'flex'};
-    flex-direction: column;
-    h1{
-        width: 247.83px;
-        height: 44px;
-        font-family: 'Recursive';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 22px;
-        color: #333333;
-        text-align: center;
-    }
-    img{
-        margin-right: 15px;
-        width: 20px;
-        height: 23px;
-    }
-    `
+div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+margin-bottom: 25px;
+width: 300px;
+height: 131px;
+background: #FFFFD5;
+box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+border-radius: 5px;
+display: ${props.expandir[props.posição-1]==0?'none':'flex'};
+flex-direction: column;
+h1{
+    width: 247.83px;
+    height: 44px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    text-align: center;
+}
+img{
+    margin-right: 15px;
+    width: 20px;
+    height: 23px;
+}
+`
     const SCcomprimido = styled.div`
     width: 300px;
     height: 65px;
@@ -86,9 +85,9 @@ export default function Quest(props){
     switch (props.expandir[props.posição-1]){
         case 1 :
             return(
-                <SCexpandido data-test="flashcard">
+                <SCexpandido data-test="flashcard" id={props.lidos}>
                 <h1 data-test="flashcard-text">{props.pergunta}</h1>
-                <img data-test="play-btn" onClick={()=>{props.SetExpandir(expansão(props.expandir,props.posição));props.SetRespondidos(props.posição)}} src={props.icones.abrir} alt="read the question" />
+                <img data-test="play-btn" onClick={()=>{props.SetExpandir(expansão(props.expandir,props.posição));props.Setlidos(props.lidos+1)}} src={props.icones.abrir} alt="read the question" />
                 </SCexpandido>
             )
             break
@@ -109,7 +108,7 @@ export default function Quest(props){
                 <>
                 <SCcomprimido data-test="flashcard" >
                     <h1 data-test="flashcard-text">pergunta {props.posição}</h1>
-                    <img data-test="play-btn" onClick={()=>{props.SetExpandir(expansão(props.expandir,props.posição));props.SetRespondidos(props.posição)}} src={props.icones.abrir} alt="read the question" />
+                    <img data-test="play-btn" onClick={()=>{props.SetExpandir(expansão(props.expandir,props.posição));props.Setlidos(props.lidos+1)}} src={props.icones.abrir} alt="read the question" />
                 </SCcomprimido>
                 </>
             )

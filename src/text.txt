@@ -1,16 +1,1 @@
-return(
-        <SCexpandido data-test="flashcard">
-        <h1 data-test="flashcard-text">{props.pergunta}</h1>
-        <div>
-            <redbuton>Não lembrei</redbuton>
-            <yellowbutton>Quase não lembrei</yellowbutton>
-            <greenbutton>Zap!</greenbutton>
-        </div>
-        </SCexpandido>
-return(
-        <>
-        <SCcomprimido data-test="flashcard" >
-            <h1 data-test="flashcard-text">pergunta {props.posição}</h1>
-            <img data-test="play-btn" onClick={()=>{props.SetExpandir(expansão(props.expandir,props.posição));props.SetRespondidos(props.posição)}} src={props.icones.abrir} alt="read the question" />
-        </SCcomprimido>
-        </>
+<h1>lidos: {props.lidos}/{props.expandir.length}</h1>

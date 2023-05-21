@@ -21,8 +21,11 @@ export default function Contador(props){
         text-align: center;
     };
     `
+    const Atualizador = styled.div`
+    display:none;`
     return(
         <Contadorhtml data-test="footer">
+            <Atualizador>{props.lidos}{props.respondidos}</Atualizador>
             <h1>{props.respondidos}/{props.expandir.length} CONCLUÍDOS</h1>
         </Contadorhtml>
     )
