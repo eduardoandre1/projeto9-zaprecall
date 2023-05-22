@@ -1,1 +1,0 @@
-<h1>lidos: {props.lidos}/{props.expandir.length}</h1>

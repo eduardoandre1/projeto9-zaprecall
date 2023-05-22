@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const questbuttom = styled.button`
-    width: 85.17px;
-    height: 37.17px;
+const Questbuttom = styled.button`
+    width: 85px;
+    height: 37px;
     border-radius: 5px;
     font-family: 'Recursive';
     font-style: normal;
@@ -14,11 +14,6 @@ const questbuttom = styled.button`
     text-align: center;
     justify-content: center;
     color: #FFFFFF;
-<<<<<<< HEAD
-    border: none;
     justify-content: center;
-=======
-    border: 0px;
->>>>>>> 4f5a22ededa1038df38481feceb392b2a715c492
     `
-export default questbuttom;
+export default Questbuttom;

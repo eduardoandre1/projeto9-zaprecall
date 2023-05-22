@@ -1,11 +1,11 @@
 import Quest from "./quest";
 import styled from "styled-components"
+import Questbuttom  from "./questbuttom";
 
 export default function Questions(props){
     const Lista = styled.div`
     margin-bottom:70px`
-    const perguntas = props.posição.map(
-         (numero)=>{
+    const perguntas = props.posição.map((numero)=>{
             let imagem = props.icones.abrir 
             switch(props.escolha[numero-1]){
                 case '#FF3030':
@@ -17,7 +17,7 @@ export default function Questions(props){
                 case "#2FBE34":
                     imagem = props.icones.certo
             }
-            return <Quest 
+            return (<Quest 
                     //variaveis exclusivas na construção de cada pergunta
                     key={props.expandir[numero-1]} 
                     pergunta={props.cards[numero-1].question} 
@@ -36,10 +36,11 @@ export default function Questions(props){
                     escolha={props.escolha} 
                     Setescolha={props.Setescolha} 
                     />
-        }
-    )
+                )
+        })
     return(
         <Lista>
             {perguntas}
-        </Lista>)
+        </Lista>
+        )
 }

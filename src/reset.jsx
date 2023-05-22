@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-const reset = createGlobalStyle`
+const Reset = createGlobalStyle`
 body{
     margin: 0;
     padding: 0;
@@ -31,4 +31,4 @@ table {
     border-spacing: 0;
 }
 `
-export default reset
+export default Reset
