@@ -58,6 +58,7 @@ export default function Quest(props){
     button{
         border: none;
         box-shadow: opx opx;
+        background: none;
     }
     `
     const SCcomprimido = styled.div`
