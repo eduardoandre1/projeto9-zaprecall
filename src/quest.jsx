@@ -55,6 +55,9 @@ export default function Quest(props){
         width: 25px;
         height: 25px;
     }
+    button{
+        border: 0px;
+    }
     `
     const SCcomprimido = styled.div`
     width: 300px;
