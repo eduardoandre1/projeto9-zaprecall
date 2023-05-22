@@ -55,12 +55,7 @@ export default function Quest(props){
         width: 25px;
         height: 25px;
     }
-    button{
-        all: unset;
-        border: none;
-        background: none;
-        padding: none;
-    }
+    
     `
     const SCcomprimido = styled.div`
     width: 300px;
@@ -88,6 +83,12 @@ export default function Quest(props){
         margin-right: 15px;
         width: 20px;
         height: 23px;
+    }
+    button{
+        all: unset;
+        border: none;
+        background: none;
+        padding: none;
     }`
     
     const Redbuton = styled(questbuttom)`background: #FF3030;`;
