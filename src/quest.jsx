@@ -56,8 +56,8 @@ export default function Quest(props){
         height: 25px;
     }
     button{
+        all: unset;
         border: none;
-        box-shadow: opx opx;
         background: none;
     }
     `
