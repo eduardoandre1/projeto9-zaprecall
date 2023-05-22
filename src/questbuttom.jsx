@@ -12,6 +12,7 @@ const questbuttom = styled.button`
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: center;
     color: #FFFFFF;
     border: 0px;
     `
