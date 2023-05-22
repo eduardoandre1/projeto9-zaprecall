@@ -127,7 +127,7 @@ export default function Quest(props){
                         onClick={()=>exp()} 
                         data-test="play-btn" 
                         ><img 
-                        src={props.icones.abrir}
+                        src={props.imagem}
                         alt="read the question" 
                         />
                     </button>
