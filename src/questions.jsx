@@ -1,5 +1,6 @@
 import Quest from "./quest";
 import styled from "styled-components"
+
 export default function Questions(props){
     const Lista = styled.div`
     margin-bottom:70px`
@@ -15,7 +16,6 @@ export default function Questions(props){
                     break;
                 case "#2FBE34":
                     imagem = props.icones.certo
-
             }
             return <Quest 
                     //variaveis exclusivas na construção de cada pergunta
@@ -39,7 +39,7 @@ export default function Questions(props){
         }
     )
     return(
-        <Lista >
+        <Lista>
             {perguntas}
         </Lista>)
 }
