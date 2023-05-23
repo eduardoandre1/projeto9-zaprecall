@@ -1,22 +1,5 @@
 import styled from "styled-components"
 export default function Quest(props){
-    const Questbuttom = styled.button`
-    width: 85px;
-    height: 37px;
-    border-radius: 5px;
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    color: #FFFFFF;
-    justify-content: center;
-    border: none;
-    `
     function exp(){
         let novo = props.expandir;
         novo[props.posição-1] ++;
@@ -107,9 +90,9 @@ export default function Quest(props){
         padding: none;
     }`
     
-    const Redbuton = styled(Questbuttom)`background: #FF3030;`;
-    const Yellowbutton = styled(Questbuttom)`background: #FF922E;`;
-    const Greenbutton = styled(Questbuttom)`background:#2FBE34;`;
+    const Redbuton = styled(props.Questbuttom)`background: #FF3030;`;
+    const Yellowbutton = styled(props.Questbuttom)`background: #FF922E;`;
+    const Greenbutton = styled(props.Questbuttom)`background:#2FBE34;`;
     
     switch (props.expandir[props.posição-1]){
         case 1 :
